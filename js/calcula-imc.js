@@ -25,7 +25,7 @@ var alturaValida = validaAltura(altura);
 if (!pesoValido) {
     console.log("Peso inválido! \n O peso máximo é 1000kg");
     pesoValido = false;
-    tdImc.textContent = "Peso inválido"; 
+    tdPeso.textContent = "Peso inválido"; 
     aluno.classList.add("aluno-invalido");
     
 }
@@ -33,7 +33,7 @@ if (!pesoValido) {
 if (!validaAltura) {
     console.log("Altura inválida! \n A altura máxima é 3 metros.")
     alturaValida = false;
-    tdImc.textContent = "Altura inválida.";
+    tdAltura.textContent = "Altura inválida.";
     aluno.classList.add("aluno-invalido");
 }
 
@@ -55,7 +55,7 @@ function validaPeso(peso) {
 }
 
 function validaAltura(altura){
-    if(altura>=0 && altura>3){
+    if(altura>=0 && altura<3){
         return true;
 
     }else{

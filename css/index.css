@@ -147,7 +147,8 @@ background-color: lightcoral;
 	background-color: greenyellow;
 }
 
-#mensagem-erro{
+#mensagens-erros{
 
 	color:red;
+	font-size: large;
 }

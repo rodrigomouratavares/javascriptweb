@@ -16,18 +16,36 @@
 
     if(erros.length>0){
 
-        var mensagemErro=document.querySelector("#mensagem-erro");
-        mensagemErro.textContent = erros;
+        exibeMensagensDeErros(erros);
         return;
     }
     
     //adicionando os alunos na tabela.
     var tabela = document.querySelector("#tabela-alunos");
 
+ tabela.appendChild(alunoTr);
 
-  tabela.appendChild(alunoTr);
     form.reset();
+  
+    
+   var ApagarCampoAoAdicionar = document.querySelector("#mensagens-erros");
+   ApagarCampoAoAdicionar.innerHTML = "";
  });
+
+//funções:
+
+function exibeMensagensDeErros(erros){
+ 
+var ul = document.querySelector("#mensagens-erros");
+ //COMO O innerHTML vem antes, ele apaga tudo e roda o que vem em seguida.
+    ul.innerHTML = "";
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+       
+    });
+}
 
  function obtemAlunoDoFormulario(form){
     var aluno = {
@@ -71,6 +89,29 @@ alunoTr.appendChild(montaTd(aluno.imc, "info-imc"));
 function validaAluno(aluno) {
 
     var erros = [];
+    
+    if(aluno.nome.length == Number) {
+
+        erro.push("Filho do Alan musk, é você?");
+    }
+    
+    if (aluno.nome.length == 0) {
+        erros.push("Por favor, preencha o campo NOME.");
+    }
+
+
+    if(aluno.peso.length == 0){
+        erros.push("Por favor, preencha o campo PESO");
+    }
+
+        
+    if(aluno.gordura.length == 0){
+        erros.push("Por favor, preencha o campo GORDURA.");
+    }
+
+    if (aluno.altura.length == 0) {
+        erros.push("Por favor, preencha o campo ALTURA.");
+    }
 
     if(!validaPeso(aluno.peso)){
         erros.push("peso inválido");
@@ -80,7 +121,8 @@ function validaAluno(aluno) {
     if (!validaAltura(aluno.altura)) {
         erros.push("altura inválida.");
     } 
-    
+
+
+
     return erros;
 }   
-
