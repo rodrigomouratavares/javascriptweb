@@ -1,4 +1,4 @@
-
+//Agora vamos chamar nossa função validaPaciente quando clicarmos no botão adiciona e tratar de exibir a mensagem de erro caso haja alguma:
  var botaoAdd = document.querySelector("#adicionar-aluno");
 
  botaoAdd.addEventListener("click", function(event){
@@ -11,14 +11,15 @@
 
     var alunoTr = montaTr(aluno);
 
+    //adição
     var erros = validaAluno(aluno);
 
 
     if(erros.length>0){
 
         exibeMensagensDeErros(erros);
-        return;
-    }
+        return; 
+    } //Aqui vai entrar o código de exibir erros
     
     //adicionando os alunos na tabela.
     var tabela = document.querySelector("#tabela-alunos");
@@ -34,11 +35,12 @@
 
 //funções:
 
+//Cria a função exibeMensagensDeErro, que recebe o array de erros e cria uma <li> para cada mensagem de erro:
 function exibeMensagensDeErros(erros){
  
 var ul = document.querySelector("#mensagens-erros");
  //COMO O innerHTML vem antes, ele apaga tudo e roda o que vem em seguida.
-    ul.innerHTML = "";
+ ul.innerHTML = "";
     erros.forEach(function(erro){
         var li = document.createElement("li");
         li.textContent = erro;
@@ -85,7 +87,7 @@ alunoTr.appendChild(montaTd(aluno.imc, "info-imc"));
 
  }
 
-
+//Esta função cria um array e caso encontre algum erro em alguma propriedade do paciente, adiciona ao array de erros a mensagem que será exibida depois.
 function validaAluno(aluno) {
 
     var erros = [];
@@ -125,4 +127,5 @@ function validaAluno(aluno) {
 
 
     return erros;
+    
 }   
