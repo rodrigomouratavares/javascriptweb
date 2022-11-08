@@ -4,12 +4,9 @@
  botaoAdd.addEventListener("click", function(event){
      event.preventDefault();
      var form = document.querySelector("#form-adiciona");
-         //extraindo os valores do FORM
-
-
-    var aluno = obtemAlunoDoFormulario(form);
-
-    var alunoTr = montaTr(aluno);
+    //extraindo os valores do FORM
+     var aluno = obtemAlunoDoFormulario(form);
+  
 
     //adição
     var erros = validaAluno(aluno);
@@ -21,10 +18,7 @@
         return; 
     } //Aqui vai entrar o código de exibir erros
     
-    //adicionando os alunos na tabela.
-    var tabela = document.querySelector("#tabela-alunos");
-
- tabela.appendChild(alunoTr);
+    AdicionarAlunoNaTabela(aluno);
 
     form.reset();
   
@@ -34,7 +28,13 @@
  });
 
 //funções:
-
+//adiocionar aluno na tabela via AJAX ou não.
+function AdicionarAlunoNaTabela(aluno){
+    var alunoTr = montaTr(aluno);
+    var tabela = document.querySelector("#tabela-alunos");
+    tabela.appendChild(alunoTr);
+         
+}
 //Cria a função exibeMensagensDeErro, que recebe o array de erros e cria uma <li> para cada mensagem de erro:
 function exibeMensagensDeErros(erros){
  
@@ -87,16 +87,12 @@ alunoTr.appendChild(montaTd(aluno.imc, "info-imc"));
 
  }
 
-//Esta função cria um array e caso encontre algum erro em alguma propriedade do paciente, adiciona ao array de erros a mensagem que será exibida depois.
+//Esta função cria um array e caso encontre algum erro em alguma propriedade do aluno, adiciona ao array de erros a mensagem que será exibida depois.
 function validaAluno(aluno) {
 
     var erros = [];
     
-    if(aluno.nome.length == Number) {
-
-        erro.push("Filho do Alan musk, é você?");
-    }
-    
+ 
     if (aluno.nome.length == 0) {
         erros.push("Por favor, preencha o campo NOME.");
     }

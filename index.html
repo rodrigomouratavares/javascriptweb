@@ -2,7 +2,7 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-		<title>Aparecida Nutrição</title>
+		<title>Gisele Viviane</title>
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -12,7 +12,7 @@
 		
 		<header>
 			<div class="container">
-				<h1 id="titulo">Aparecida Nutrição</h1>
+				<h1 id="titulo">Gisele Viviane</h1>
 			</div>
 		</header>
 
@@ -76,8 +76,12 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<span id="erroAjax" class="invisivel"> Erro na tentativa de buscar alunos.</span>
+				<button id="buscar-alunos" class="botao bto-principal">Buscar Aluno</button>
 			</section>
+
+
+			
 		</main>
 		<section class="container">
 			<h2 id="titulo-form">Adicionar novo Aluno</h2>
@@ -108,11 +112,14 @@
 			
 			</form>
 		</section>
+		
 
+		
 		<script src="/js/calcula-imc.js"> </script>
 			<script src="/js/form.js"> </script>
 			<script src="/js/remover-paciente.js"> </script>
 			<script src="/js/filtrar-tabela.js"> </script>
+			<script src="/js/buscarAlunos.js"> </script>
 		
 	</body>
 </html>
